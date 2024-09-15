@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 // Database connection pool
 const pool = mariadb.createPool({
     host: 'localhost',
-    port: '3306',
+    port: 3306,
     user: 'root',  // Change to your DB user if necessary
     password: 'dbpassword',
     database: 'fc_nps',
