@@ -10,10 +10,15 @@ app.use(bodyParser.json());
 // Database connection pool
 const pool = mariadb.createPool({
     host: 'localhost',
+    port: '3306',
     user: 'root',  // Change to your DB user if necessary
     password: 'dbpassword',
     database: 'fc_nps',
     connectionLimit: 5
+});
+
+app.get('/api/health-check', async (req, res) => {
+    res.status(200).json({ status: 'ok' });
 });
 
 // Get NPS scores for a specific Instagram account
