@@ -9,10 +9,10 @@ app.use(bodyParser.json());
 
 // Database connection pool
 const pool = mariadb.createPool({
-    host: '127.0.0.1',
-    user: 'root',  // Change to your DB user if necessary
-    password: 'dbpassword',
-    database: 'fc_nps',
+    host: process.env.DB_HOST || 'db',  // 'db' will be the hostname in Docker
+    user: process.env.DB_USER || 'root',
+    password: process.env.DB_PASSWORD || 'password',
+    database: process.env.DB_NAME || 'fc_nps',
     connectionLimit: 5
 });
 
